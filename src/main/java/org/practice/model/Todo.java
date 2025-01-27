@@ -1,27 +1,30 @@
 package org.practice.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Todo {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String name;
     private String desc;
     private String category;
 
-    public Todo(int id, String name, String desc, String category) {
+    public Todo(String name, String desc, String category) {
 
-        setId(id);
         setName(name);
         setDesc(desc);
         setCategory(category);
 
     }
 
-    public int getId() {
+    public Long getId() {
         return this.id;
-    }
-
-    public void setId(int newId) {
-        this.id = newId;
     }
 
     public String getName() {
